@@ -2,12 +2,57 @@ backend:
   name: git-gateway
   branch: main
 
-# Editor logs in with email magic link (Netlify Identity)
 publish_mode: simple
-media_folder: public/images/uploads
-public_folder: /images/uploads
+media_folder: public/images
+public_folder: /images
 
 collections:
+  - name: images
+    label: Site Images
+    files:
+      - name: site_images
+        label: Site Images
+        file: src/content/images/site-images.json
+        fields:
+          - label: "Hero — Background Photo"
+            name: hero_background
+            widget: image
+            hint: "Full-width background behind the main heading"
+          - label: "Specs Section — PC Preview Photo"
+            name: specs_pc
+            widget: image
+            hint: "Left panel in the Hardware Specs section"
+          - label: "Location Section — Exterior Photo"
+            name: location_exterior
+            widget: image
+            hint: "House exterior photo shown next to the distance cards"
+          - label: "Facilities Card — Training Rooms"
+            name: fac_training
+            widget: image
+            hint: "Large card, left side of the facilities grid"
+          - label: "Facilities Card — Pool & Gym"
+            name: fac_pool
+            widget: image
+            hint: "Large card, right side of the facilities grid"
+          - label: "Facilities Card — Bedrooms"
+            name: fac_bedrooms
+            widget: image
+          - label: "Facilities Card — Kitchen"
+            name: fac_kitchen
+            widget: image
+          - label: "Facilities Card — Outdoor Space"
+            name: fac_outside
+            widget: image
+          - label: "Facilities Card — Lounge"
+            name: fac_lounge
+            widget: image
+          - label: "Facilities Card — Laundry"
+            name: fac_laundry
+            widget: image
+          - label: "Facilities Card — Parking"
+            name: fac_parking
+            widget: image
+
   - name: settings
     label: Site Settings
     files:
@@ -30,17 +75,17 @@ collections:
       - { label: Name, name: name, widget: string }
       - { label: Role / Organization, name: role, widget: string }
       - { label: Quote, name: quote, widget: text }
-      - { label: Avatar Initial, name: initial, widget: string, hint: "Single letter shown in avatar circle" }
+      - { label: Avatar Initial, name: initial, widget: string, hint: "Single letter shown in the avatar circle" }
 
   - name: gallery
     label: Gallery Photos
     folder: src/content/gallery
     create: true
-    slug: '{{slug}}'
+    slug: '{{order}}-{{slug}}'
     fields:
       - { label: Caption, name: caption, widget: string }
       - { label: Photo, name: photo, widget: image }
-      - { label: Sort Order, name: order, widget: number, default: 99 }
+      - { label: Sort Order (1–7), name: order, widget: number, default: 7, hint: "Lower numbers appear first. Keep between 1 and 7." }
 
   - name: pricing
     label: Pricing
@@ -53,16 +98,16 @@ collections:
             name: short_stay
             widget: object
             fields:
-              - { label: Price, name: price, widget: string, hint: 'e.g. €15' }
-              - { label: Period, name: period, widget: string, hint: 'e.g. / 3h' }
+              - { label: Price (e.g. €15), name: price, widget: string }
+              - { label: Period (e.g. / 3h), name: period, widget: string }
               - { label: Note, name: note, widget: string }
               - { label: Features, name: features, widget: list, field: { label: Feature, name: feature, widget: string } }
           - label: Standard Bootcamp
             name: standard
             widget: object
             fields:
-              - { label: Price, name: price, widget: string, hint: 'e.g. €150' }
-              - { label: Period, name: period, widget: string, hint: 'e.g. / day' }
+              - { label: Price (e.g. €150), name: price, widget: string }
+              - { label: Period (e.g. / day), name: period, widget: string }
               - { label: Note, name: note, widget: string }
               - { label: Features, name: features, widget: list, field: { label: Feature, name: feature, widget: string } }
           - label: Complete Pack

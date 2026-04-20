@@ -1,13 +1,14 @@
 ---
+import imgs from '../content/images/site-images.json';
 const facilities = [
-  { id: 'training', icon: '🖥️', name: 'Training Rooms', hint: '3 rooms · 20 PCs',       size: 'fac-big',   img: '/images/fac-training-1.jpeg' },
-  { id: 'pool',     icon: '🏊', name: 'Pool & Gym',     hint: 'Indoor heated pool',       size: 'fac-big',   img: '/images/fac-pool.jpeg' },
-  { id: 'bedrooms', icon: '🛏️', name: 'Bedrooms',       hint: '13 rooms · 4 types',      size: 'fac-small', img: '/images/fac-bedrooms.jpeg' },
-  { id: 'kitchen',  icon: '🍳', name: 'Kitchen',        hint: 'Chef on-site',              size: 'fac-small', img: '/images/fac-kitchen.jpeg' },
-  { id: 'outside',  icon: '🌿', name: 'Outdoor Space',  hint: 'Gardens · Patio · Deck',   size: 'fac-small', img: '/images/fac-outside.jpeg' },
-  { id: 'lounge',   icon: '🎮', name: 'Lounge',         hint: 'PS5 · Ping Pong',           size: 'fac-small', img: '/images/modal-lobby.jpeg' },
-  { id: 'laundry',  icon: '👕', name: 'Laundry',        hint: 'Daily service',              size: 'fac-small', img: '/images/modal-laundry.jpeg' },
-  { id: 'parking',  icon: '🚗', name: 'Parking',        hint: 'Secure · Driver service',   size: 'fac-small', img: '/images/modal-parking.jpeg' },
+  { id: 'training', icon: '🖥️', name: 'Training Rooms', hint: '3 rooms · 20 PCs',       size: 'fac-big',   img: imgs.fac_training },
+  { id: 'pool',     icon: '🏊', name: 'Pool & Gym',     hint: 'Indoor heated pool',       size: 'fac-big',   img: imgs.fac_pool },
+  { id: 'bedrooms', icon: '🛏️', name: 'Bedrooms',       hint: '13 rooms · 4 types',      size: 'fac-small', img: imgs.fac_bedrooms },
+  { id: 'kitchen',  icon: '🍳', name: 'Kitchen',        hint: 'Chef on-site',              size: 'fac-small', img: imgs.fac_kitchen },
+  { id: 'outside',  icon: '🌿', name: 'Outdoor Space',  hint: 'Gardens · Patio · Deck',   size: 'fac-small', img: imgs.fac_outside },
+  { id: 'lounge',   icon: '🎮', name: 'Lounge',         hint: 'PS5 · Ping Pong',           size: 'fac-small', img: imgs.fac_lounge },
+  { id: 'laundry',  icon: '👕', name: 'Laundry',        hint: 'Daily service',              size: 'fac-small', img: imgs.fac_laundry },
+  { id: 'parking',  icon: '🚗', name: 'Parking',        hint: 'Secure · Driver service',   size: 'fac-small', img: imgs.fac_parking },
 ];
 ---
 <section class="facilities" id="facilities">

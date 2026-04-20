@@ -1,9 +1,10 @@
 ---
 import settings from '../content/settings/general.json';
+import imgs from '../content/images/site-images.json';
 ---
 <section class="hero" id="home" aria-label="Hero">
   <div class="hero-bg" aria-hidden="true">
-    <img src="/images/gallery-g1-exterior.jpeg" alt="" />
+    <img src={imgs.hero_background} alt="" />
   </div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="hero-badge" aria-hidden="true">
@@ -24,14 +25,8 @@ import settings from '../content/settings/general.json';
       <div class="stat-n">850<span style="font-size:24px;color:var(--yellow-dim)">m²</span></div>
       <div class="stat-l">Property Size</div>
     </div>
-    <div class="stat">
-      <div class="stat-n">20</div>
-      <div class="stat-l">Gaming PCs</div>
-    </div>
-    <div class="stat">
-      <div class="stat-n">13</div>
-      <div class="stat-l">Bedrooms</div>
-    </div>
+    <div class="stat"><div class="stat-n">20</div><div class="stat-l">Gaming PCs</div></div>
+    <div class="stat"><div class="stat-n">13</div><div class="stat-l">Bedrooms</div></div>
   </div>
   <div class="hero-scroll" aria-hidden="true">
     <span>Scroll</span>

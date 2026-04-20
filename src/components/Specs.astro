@@ -1,4 +1,5 @@
 ---
+import imgs from '../content/images/site-images.json';
 ---
 <section class="specs" id="specs" aria-label="Hardware Specs">
   <div class="specs-inner">
@@ -6,7 +7,7 @@
     <h2 class="section-title">Training<br><em>Room</em></h2>
     <div class="specs-top">
       <div class="pc-visual" aria-hidden="true">
-        <img src="/images/specs-pc.webp" alt="" style="object-fit:contain;background:#000;padding:20px" />
+        <img src={imgs.specs_pc} alt="Gaming PC setup" style="object-fit:contain;background:#000;padding:20px" />
         <div class="pc-visual-overlay"></div>
         <div class="pc-visual-label">
           <div class="pc-visual-tag">— Pro Level</div>
