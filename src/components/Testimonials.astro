@@ -1,0 +1,44 @@
+---
+const testimonials = [
+  {
+    quote: 'An exceptional facility. Everything a professional team needs is here — the hardware is top tier, the living spaces are comfortable, and the house manager made everything seamless.',
+    name: 'Team Example',
+    role: 'Esports Organization',
+    initial: 'E',
+  },
+  {
+    quote: 'We came for a 2-week bootcamp before a major and the results speak for themselves. Training rooms are world-class and the recovery facilities kept the squad at 100%.',
+    name: 'Your Team',
+    role: 'Professional Squad',
+    initial: 'Y',
+  },
+  {
+    quote: 'Easy to fly into Lisbon, beach nearby for recovery days, and the house itself is simply the best bootcamp facility we\'ve used. Will definitely be back.',
+    name: 'Pro Player',
+    role: 'International Team',
+    initial: 'P',
+  },
+];
+---
+<section class="testimonials" id="testimonials" aria-label="Testimonials">
+  <div class="inner">
+    <span class="tag">— Trusted by Professionals</span>
+    <h2 class="section-title">What Pros<br><em>Say</em></h2>
+    <div class="testi-grid">
+      {testimonials.map(t => (
+        <article class="testi-card">
+          <div class="testi-qmark" aria-hidden="true">"</div>
+          <div class="testi-stars" aria-label="5 stars">★★★★★</div>
+          <p class="testi-q">"{t.quote}"</p>
+          <div class="testi-author">
+            <div class="testi-av" aria-hidden="true">{t.initial}</div>
+            <div>
+              <div class="testi-name">{t.name}</div>
+              <div class="testi-role">{t.role}</div>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

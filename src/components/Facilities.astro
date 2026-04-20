@@ -1,0 +1,312 @@
+---
+const facilities = [
+  { id: 'training', icon: '🖥️', name: 'Training Rooms', hint: '3 rooms · 20 PCs',       size: 'fac-big',   img: '/images/fac-training-1.jpeg' },
+  { id: 'pool',     icon: '🏊', name: 'Pool & Gym',     hint: 'Indoor heated pool',       size: 'fac-big',   img: '/images/fac-pool.jpeg' },
+  { id: 'bedrooms', icon: '🛏️', name: 'Bedrooms',       hint: '13 rooms · 4 types',      size: 'fac-small', img: '/images/fac-bedrooms.jpeg' },
+  { id: 'kitchen',  icon: '🍳', name: 'Kitchen',        hint: 'Chef on-site',              size: 'fac-small', img: '/images/fac-kitchen.jpeg' },
+  { id: 'outside',  icon: '🌿', name: 'Outdoor Space',  hint: 'Gardens · Patio · Deck',   size: 'fac-small', img: '/images/fac-outside.jpeg' },
+  { id: 'lounge',   icon: '🎮', name: 'Lounge',         hint: 'PS5 · Ping Pong',           size: 'fac-small', img: '/images/modal-lobby.jpeg' },
+  { id: 'laundry',  icon: '👕', name: 'Laundry',        hint: 'Daily service',              size: 'fac-small', img: '/images/modal-laundry.jpeg' },
+  { id: 'parking',  icon: '🚗', name: 'Parking',        hint: 'Secure · Driver service',   size: 'fac-small', img: '/images/modal-parking.jpeg' },
+];
+---
+<section class="facilities" id="facilities">
+  <div class="inner">
+    <span class="tag">— Amenities</span>
+    <h2 class="section-title">World-Class<br><em>Facilities</em></h2>
+  </div>
+  <div style="max-width:1280px;margin:0 auto;padding:0 60px">
+    <div class="fac-grid">
+      {facilities.map(f => (
+        <div
+          class={`fac-card ${f.size}`}
+          role="button"
+          tabindex="0"
+          aria-haspopup="dialog"
+          aria-label={`View ${f.name} details`}
+          data-modal={f.id}
+        >
+          <img src={f.img} alt="" aria-hidden="true" />
+          <div class="fac-overlay">
+            <div class="fac-icon" aria-hidden="true">{f.icon}</div>
+            <div class="fac-name">{f.name}</div>
+            <div class="fac-hint">{f.hint} — View details</div>
+          </div>
+          <div class="fac-bar" aria-hidden="true"></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- MODALS -->
+<div class="modal-backdrop" id="modal-training" role="dialog" aria-modal="true" aria-label="Training Rooms">
+  <div class="modal">
+    <button class="modal-close" aria-label="Close modal">✕ CLOSE</button>
+    <div class="m-tabs" role="tablist">
+      <button class="m-tab active" role="tab" aria-selected="true"  data-tab="training-room1">Room 1</button>
+      <button class="m-tab"        role="tab" aria-selected="false" data-tab="training-room2">Room 2</button>
+      <button class="m-tab"        role="tab" aria-selected="false" data-tab="training-room3">Room 3 — Analyst</button>
+      <button class="m-tab"        role="tab" aria-selected="false" data-tab="training-specs">PC Specs</button>
+    </div>
+    <div class="m-body">
+      <div class="m-panel active" id="training-room1" role="tabpanel">
+        <div class="m-section"><div class="m-section-label">🖥️ Training Room 1</div></div>
+        <img class="m-img-full" src="/images/modal-training-room1.jpeg" alt="Training Room 1" style="object-position:center top" />
+        <div class="m-specs">
+          <div class="m-spec"><div class="m-spec-label">Stations</div><div class="m-spec-val">8 PCs</div></div>
+          <div class="m-spec"><div class="m-spec-label">Format</div><div class="m-spec-val">Full Stage</div></div>
+          <div class="m-spec"><div class="m-spec-label">Monitor</div><div class="m-spec-val">360 Hz</div></div>
+        </div>
+      </div>
+      <div class="m-panel" id="training-room2" role="tabpanel">
+        <div class="m-section"><div class="m-section-label">🖥️ Training Room 2</div></div>
+        <img class="m-img-full" src="/images/modal-training-room2.jpeg" alt="Training Room 2" />
+        <div class="m-specs">
+          <div class="m-spec"><div class="m-spec-label">Stations</div><div class="m-spec-val">6 PCs</div></div>
+          <div class="m-spec"><div class="m-spec-label">Format</div><div class="m-spec-val">Scrim Format</div></div>
+          <div class="m-spec"><div class="m-spec-label">Monitor</div><div class="m-spec-val">360 Hz</div></div>
+        </div>
+      </div>
+      <div class="m-panel" id="training-room3" role="tabpanel">
+        <div class="m-section"><div class="m-section-label">🖥️ Training Room 3 — Analyst</div></div>
+        <img class="m-img-full" src="/images/modal-training-room3.jpeg" alt="Training Room 3 — Analyst" style="object-position:center top" />
+        <div class="m-specs">
+          <div class="m-spec"><div class="m-spec-label">Stations</div><div class="m-spec-val">4 PCs</div></div>
+          <div class="m-spec"><div class="m-spec-label">Use</div><div class="m-spec-val">VOD / Analyst</div></div>
+          <div class="m-spec"><div class="m-spec-label">Monitor</div><div class="m-spec-val">360 Hz</div></div>
+        </div>
+      </div>
+      <div class="m-panel" id="training-specs" role="tabpanel">
+        <div class="m-section"><div class="m-section-label">⚙️ PC Specs — All 20 Rigs</div></div>
+        <img class="m-img-full" src="/images/modal-training-specs.webp" alt="PC Setup" style="object-fit:contain;background:#000;height:280px;padding:30px" />
+        <div class="m-specs" style="grid-template-columns:1fr 1fr">
+          <div class="m-spec"><div class="m-spec-label">Processor</div><div class="m-spec-val">AMD Ryzen 7 9800X3D</div><div class="m-spec-sub">8-Core 5 GHz</div></div>
+          <div class="m-spec"><div class="m-spec-label">Graphics</div><div class="m-spec-val">NVIDIA RTX 5080</div><div class="m-spec-sub">16 GB GDDR7</div></div>
+          <div class="m-spec"><div class="m-spec-label">Memory</div><div class="m-spec-val">Corsair DDR5 32 GB</div><div class="m-spec-sub">6000 MHz</div></div>
+          <div class="m-spec"><div class="m-spec-label">Monitor</div><div class="m-spec-val">BenQ Zowie 24.5"</div><div class="m-spec-sub">360 Hz XL2566K</div></div>
+          <div class="m-spec"><div class="m-spec-label">Chair</div><div class="m-spec-val">Secretlab Titan XL</div><div class="m-spec-sub">Electric Table</div></div>
+          <div class="m-spec"><div class="m-spec-label">Internet</div><div class="m-spec-val">10 Gbps</div><div class="m-spec-sub">Razer Kiyo Webcam</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="modal-pool" role="dialog" aria-modal="true" aria-label="Pool and Gym">
+  <div class="modal">
+    <button class="modal-close" aria-label="Close modal">✕ CLOSE</button>
+    <div class="m-body">
+      <div class="m-section"><div class="m-section-label">🏊 Indoor Pool</div></div>
+      <img class="m-img-full" src="/images/modal-pool.jpeg" alt="Indoor Pool" />
+      <div class="m-specs">
+        <div class="m-spec"><div class="m-spec-label">Dimensions</div><div class="m-spec-val">8 m × 3 m</div></div>
+        <div class="m-spec"><div class="m-spec-label">Depth</div><div class="m-spec-val">2.3 m</div></div>
+        <div class="m-spec"><div class="m-spec-label">Type</div><div class="m-spec-val">Indoor / Heated</div></div>
+      </div>
+      <div class="m-section"><div class="m-section-label">💪 Gym</div></div>
+      <div class="m-img-grid">
+        <img src="/images/modal-gym-1.jpeg" alt="Gym weights" />
+        <img src="/images/modal-gym-2.jpeg" alt="Gym equipment" />
+      </div>
+      <div class="m-specs">
+        <div class="m-spec"><div class="m-spec-label">Equipment</div><div class="m-spec-val">Free Weights</div></div>
+        <div class="m-spec"><div class="m-spec-label">Equipment</div><div class="m-spec-val">Barbells</div></div>
+        <div class="m-spec"><div class="m-spec-label">Equipment</div><div class="m-spec-val">Cable Machines</div></div>
+      </div>
+      <div class="m-section"><div class="m-section-label">♨️ Jacuzzi</div></div>
+      <img class="m-img-full" src="/images/modal-jacuzzi.jpeg" alt="Jacuzzi" />
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="modal-outside" role="dialog" aria-modal="true" aria-label="Outdoor Space">
+  <div class="modal">
+    <button class="modal-close" aria-label="Close modal">✕ CLOSE</button>
+    <div class="m-body">
+      <div class="m-section"><div class="m-section-label">🌿 Gardens</div></div>
+      <img class="m-img-full" src="/images/modal-gardens-full.jpeg" alt="Gardens" />
+      <div class="m-section"><div class="m-section-label">🪵 Patio</div></div>
+      <div class="m-img-grid">
+        <img src="/images/modal-patio-1.jpeg" alt="Patio" />
+        <img src="/images/modal-patio-2.jpeg" alt="Patio" />
+      </div>
+      <div class="m-section"><div class="m-section-label">🌅 Deck</div></div>
+      <img class="m-img-full" src="/images/modal-deck.jpeg" alt="Deck" />
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="modal-kitchen" role="dialog" aria-modal="true" aria-label="Kitchen">
+  <div class="modal">
+    <button class="modal-close" aria-label="Close modal">✕ CLOSE</button>
+    <div class="m-body">
+      <div class="m-section"><div class="m-section-label">🍳 Kitchen 1 — Main</div></div>
+      <img class="m-img-full" src="/images/modal-kitchen-1.jpeg" alt="Kitchen 1" />
+      <div class="m-section"><div class="m-section-label">🍳 Kitchen 2 — Secondary</div></div>
+      <img class="m-img-full" src="/images/modal-kitchen-2.jpeg" alt="Kitchen 2" />
+      <div class="m-specs">
+        <div class="m-spec"><div class="m-spec-label">Chef</div><div class="m-spec-val">On-site</div></div>
+        <div class="m-spec"><div class="m-spec-label">Meals</div><div class="m-spec-val">3× per day</div></div>
+        <div class="m-spec"><div class="m-spec-label">Diet</div><div class="m-spec-val">Customisable</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="modal-bedrooms" role="dialog" aria-modal="true" aria-label="Bedrooms">
+  <div class="modal">
+    <button class="modal-close" aria-label="Close modal">✕ CLOSE</button>
+    <div class="m-body">
+      <div class="m-section"><div class="m-section-label">🛏️ Double Room with Private WC</div></div>
+      <div class="m-img-grid">
+        <img src="/images/modal-bedroom-double-wc-1.jpeg" alt="Double room with WC" />
+        <img src="/images/modal-bedroom-double-wc-2.jpeg" alt="Double room with WC" />
+      </div>
+      <div class="m-specs" style="grid-template-columns:1fr 1fr">
+        <div class="m-spec"><div class="m-spec-label">Bed</div><div class="m-spec-val">Double</div></div>
+        <div class="m-spec"><div class="m-spec-label">Bathroom</div><div class="m-spec-val">Private · 2 rooms</div></div>
+      </div>
+      <div class="m-section"><div class="m-section-label">🛏️ Double Room with Shared WC</div></div>
+      <div class="m-img-grid">
+        <img src="/images/modal-bedroom-double-shared-1.jpeg" alt="Double room shared WC" />
+        <img src="/images/modal-bedroom-double-shared-2.jpeg" alt="Double room shared WC" />
+      </div>
+      <div class="m-specs" style="grid-template-columns:1fr 1fr">
+        <div class="m-spec"><div class="m-spec-label">Bed</div><div class="m-spec-val">Double</div></div>
+        <div class="m-spec"><div class="m-spec-label">Bathroom</div><div class="m-spec-val">Shared · 2 rooms</div></div>
+      </div>
+      <div class="m-section"><div class="m-section-label">🛏️ Single Room with Private WC</div></div>
+      <div class="m-img-grid">
+        <img src="/images/modal-bedroom-single-wc-1.jpeg" alt="Single room with WC" />
+        <img src="/images/modal-bedroom-single-wc-2.jpeg" alt="Single room with WC" />
+      </div>
+      <div class="m-specs" style="grid-template-columns:1fr 1fr">
+        <div class="m-spec"><div class="m-spec-label">Bed</div><div class="m-spec-val">Single</div></div>
+        <div class="m-spec"><div class="m-spec-label">Bathroom</div><div class="m-spec-val">Private · 4 rooms</div></div>
+      </div>
+      <div class="m-section"><div class="m-section-label">🛏️ Single Room with Shared WC</div></div>
+      <div class="m-img-grid">
+        <img src="/images/modal-bedroom-single-shared-1.jpeg" alt="Single room shared WC" />
+        <img src="/images/modal-bedroom-single-shared-2.jpeg" alt="Single room shared WC" />
+      </div>
+      <div class="m-specs" style="grid-template-columns:1fr 1fr">
+        <div class="m-spec"><div class="m-spec-label">Bed</div><div class="m-spec-val">Single</div></div>
+        <div class="m-spec"><div class="m-spec-label">Bathroom</div><div class="m-spec-val">Shared · 4 rooms</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="modal-lounge" role="dialog" aria-modal="true" aria-label="Lounge">
+  <div class="modal">
+    <button class="modal-close" aria-label="Close modal">✕ CLOSE</button>
+    <div class="m-body">
+      <div class="m-section"><div class="m-section-label">🎮 Lobby Room — PS5 &amp; Console</div></div>
+      <img class="m-img-full" src="/images/modal-lobby.jpeg" alt="Lobby Room" />
+      <div class="m-specs">
+        <div class="m-spec"><div class="m-spec-label">Console</div><div class="m-spec-val">PlayStation 5</div></div>
+        <div class="m-spec"><div class="m-spec-label">Screen</div><div class="m-spec-val">Large TV</div></div>
+        <div class="m-spec"><div class="m-spec-label">Seating</div><div class="m-spec-val">Sofas &amp; Poufs</div></div>
+      </div>
+      <div class="m-section"><div class="m-section-label">🏓 Ping Pong Room</div></div>
+      <img class="m-img-full" src="/images/modal-pingpong.jpeg" alt="Ping Pong Room" />
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="modal-laundry" role="dialog" aria-modal="true" aria-label="Laundry">
+  <div class="modal">
+    <button class="modal-close" aria-label="Close modal">✕ CLOSE</button>
+    <div class="m-body">
+      <div class="m-section"><div class="m-section-label">👕 Laundry Service</div></div>
+      <img class="m-img-full" src="/images/modal-laundry.jpeg" alt="Laundry" />
+      <div class="m-specs">
+        <div class="m-spec"><div class="m-spec-label">Machines</div><div class="m-spec-val">Wash + Dry</div></div>
+        <div class="m-spec"><div class="m-spec-label">Service</div><div class="m-spec-val">Daily</div></div>
+        <div class="m-spec"><div class="m-spec-label">Included</div><div class="m-spec-val">All packages</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="modal-parking" role="dialog" aria-modal="true" aria-label="Parking">
+  <div class="modal">
+    <button class="modal-close" aria-label="Close modal">✕ CLOSE</button>
+    <div class="m-body">
+      <div class="m-section"><div class="m-section-label">🚗 Car Parking</div></div>
+      <img class="m-img-full" src="/images/modal-parking.jpeg" alt="Car Parking" />
+      <div class="m-specs">
+        <div class="m-spec"><div class="m-spec-label">Spaces</div><div class="m-spec-val">Multiple</div></div>
+        <div class="m-spec"><div class="m-spec-label">Security</div><div class="m-spec-val">24/7 Cameras</div></div>
+        <div class="m-spec"><div class="m-spec-label">Access</div><div class="m-spec-val">Included</div></div>
+      </div>
+      <div class="m-section"><div class="m-section-label">🛞 Driver Service</div></div>
+      <img class="m-img-full" src="/images/modal-driver.jpeg" alt="Driver Service" />
+      <div class="m-specs" style="grid-template-columns:1fr 1fr">
+        <div class="m-spec"><div class="m-spec-label">Airport</div><div class="m-spec-val">Lisbon</div></div>
+        <div class="m-spec"><div class="m-spec-label">Booking</div><div class="m-spec-val">On request</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openModal(id: string) {
+    const m = document.getElementById('modal-' + id);
+    if (!m) return;
+    m.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    m.querySelectorAll<HTMLElement>('.m-tab').forEach((t, i) => t.classList.toggle('active', i === 0));
+    m.querySelectorAll<HTMLElement>('.m-panel').forEach((p, i) => p.classList.toggle('active', i === 0));
+    const mb = m.querySelector<HTMLElement>('.m-body');
+    if (mb) mb.scrollTop = 0;
+    const closeBtn = m.querySelector<HTMLElement>('.modal-close');
+    if (closeBtn) closeBtn.focus();
+  }
+
+  function closeModal(id: string) {
+    const m = document.getElementById(id);
+    if (m) { m.classList.remove('open'); document.body.style.overflow = ''; }
+  }
+
+  document.querySelectorAll<HTMLElement>('.fac-card').forEach(card => {
+    const id = card.dataset.modal;
+    if (!id) return;
+    const handler = () => openModal(id);
+    card.addEventListener('click', handler);
+    card.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handler(); } });
+  });
+
+  document.querySelectorAll<HTMLElement>('.modal-close').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const backdrop = btn.closest<HTMLElement>('.modal-backdrop');
+      if (backdrop) closeModal(backdrop.id);
+    });
+  });
+
+  document.querySelectorAll<HTMLElement>('.modal-backdrop').forEach(backdrop => {
+    backdrop.addEventListener('click', (e) => {
+      if (e.target === backdrop) closeModal(backdrop.id);
+    });
+  });
+
+  document.querySelectorAll<HTMLElement>('.m-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const modal = tab.closest<HTMLElement>('.modal-backdrop');
+      if (!modal) return;
+      modal.querySelectorAll<HTMLElement>('.m-tab').forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+      modal.querySelectorAll<HTMLElement>('.m-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      const panelId = tab.dataset.tab;
+      if (panelId) document.getElementById(panelId)?.classList.add('active');
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll<HTMLElement>('.modal-backdrop.open').forEach(m => closeModal(m.id));
+    }
+  });
+</script>

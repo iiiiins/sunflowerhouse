@@ -1,0 +1,17 @@
+---
+const logos = [
+  { icon: '🪑', name: 'SECRETLAB', cls: 'sl' },
+  { icon: '🐂', name: 'RED BULL', cls: 'rb' },
+  { icon: '🖥️', name: 'ZOWIE', cls: 'zw' },
+];
+---
+<div class="sponsors-wrap" aria-hidden="true">
+  <div class="sponsors-track">
+    {[...logos, ...logos, ...logos, ...logos, ...logos, ...logos].map(l => (
+      <div class="sponsor-logo-item">
+        <span class="s-icon">{l.icon}</span>
+        <span class={`s-name ${l.cls}`}>{l.name}</span>
+      </div>
+    ))}
+  </div>
+</div>

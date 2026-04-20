@@ -1,0 +1,73 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Editor logs in with email magic link (Netlify Identity)
+publish_mode: simple
+media_folder: public/images/uploads
+public_folder: /images/uploads
+
+collections:
+  - name: settings
+    label: Site Settings
+    files:
+      - name: general
+        label: General
+        file: src/content/settings/general.json
+        fields:
+          - { label: Contact Email, name: contact_email, widget: string }
+          - { label: Address, name: address, widget: string }
+          - { label: Website URL, name: website, widget: string }
+          - { label: Hero Badge Text, name: hero_badge, widget: string }
+          - { label: Hero Description, name: hero_desc, widget: text }
+
+  - name: testimonials
+    label: Testimonials
+    folder: src/content/testimonials
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: Name, name: name, widget: string }
+      - { label: Role / Organization, name: role, widget: string }
+      - { label: Quote, name: quote, widget: text }
+      - { label: Avatar Initial, name: initial, widget: string, hint: "Single letter shown in avatar circle" }
+
+  - name: gallery
+    label: Gallery Photos
+    folder: src/content/gallery
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: Caption, name: caption, widget: string }
+      - { label: Photo, name: photo, widget: image }
+      - { label: Sort Order, name: order, widget: number, default: 99 }
+
+  - name: pricing
+    label: Pricing
+    files:
+      - name: packages
+        label: Pricing Packages
+        file: src/content/pricing/packages.json
+        fields:
+          - label: Short Stay
+            name: short_stay
+            widget: object
+            fields:
+              - { label: Price, name: price, widget: string, hint: 'e.g. €15' }
+              - { label: Period, name: period, widget: string, hint: 'e.g. / 3h' }
+              - { label: Note, name: note, widget: string }
+              - { label: Features, name: features, widget: list, field: { label: Feature, name: feature, widget: string } }
+          - label: Standard Bootcamp
+            name: standard
+            widget: object
+            fields:
+              - { label: Price, name: price, widget: string, hint: 'e.g. €150' }
+              - { label: Period, name: period, widget: string, hint: 'e.g. / day' }
+              - { label: Note, name: note, widget: string }
+              - { label: Features, name: features, widget: list, field: { label: Feature, name: feature, widget: string } }
+          - label: Complete Pack
+            name: complete
+            widget: object
+            fields:
+              - { label: Note, name: note, widget: string }
+              - { label: Features, name: features, widget: list, field: { label: Feature, name: feature, widget: string } }

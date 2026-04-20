@@ -1,0 +1,19 @@
+---
+const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
+const p = isHome ? '' : '/';
+---
+<nav aria-label="Main navigation">
+  <a href={`${p}#home`} class="nav-logo" aria-label="Sunflower House — go to top">
+    <img src="/images/logo.png" alt="" aria-hidden="true" width="44" height="44" />
+    <span class="nav-logo-text">Sunflower <span>House</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href={`${p}#about`}>About</a></li>
+    <li><a href={`${p}#facilities`}>Facilities</a></li>
+    <li><a href={`${p}#gallery`}>Gallery</a></li>
+    <li><a href={`${p}#pricing`}>Pricing</a></li>
+    <li><a href={`${p}#contact`}>Contact</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+  </ul>
+  <a href={`${p}#contact`} class="nav-cta">Book Now</a>
+</nav>

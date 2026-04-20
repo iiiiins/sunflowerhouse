@@ -1,0 +1,25 @@
+---
+const slots = [
+  { cls: 'g1', img: '/images/gallery-g1-exterior.jpeg',      label: 'Exterior' },
+  { cls: 'g2', img: '/images/gallery-g2-training.jpeg',      label: 'Training Room', pos: 'center top' },
+  { cls: 'g3', img: '/images/gallery-g3-side.jpeg',          label: 'Side View' },
+  { cls: 'g4', img: '/images/gallery-g4-garden-path.jpeg',   label: 'Garden' },
+  { cls: 'g5', img: '/images/gallery-g5-garden-side.jpeg',   label: 'Garden' },
+  { cls: 'g6', img: '/images/gallery-g6-exterior-wide.jpeg', label: 'Exterior' },
+  { cls: 'g7', img: '/images/gallery-g7-misc.jpeg',          label: 'Interior' },
+];
+---
+<section class="gallery-section" id="gallery" aria-label="Photo Gallery">
+  <div class="gallery-header inner">
+    <span class="tag">— Photo Tour</span>
+    <h2 class="section-title">Inside the<br><em>House</em></h2>
+  </div>
+  <div class="gal-grid">
+    {slots.map(s => (
+      <div class={`gal-item ${s.cls}`}>
+        <img src={s.img} alt={s.label} style={s.pos ? `object-position:${s.pos}` : undefined} />
+        <div class="gal-caption">{s.label}</div>
+      </div>
+    ))}
+  </div>
+</section>

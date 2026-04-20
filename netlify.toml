@@ -1,0 +1,6 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Netlify Identity is enabled via the Netlify dashboard (Site settings → Identity)
+# No plugin required

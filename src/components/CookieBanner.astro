@@ -1,0 +1,23 @@
+---
+---
+<div class="cookie-banner" id="cookie-banner" role="complementary" aria-label="Cookie notice">
+  <p>
+    We use cookies to improve your experience. By continuing to browse this site you accept our
+    <a href="/privacy">privacy policy</a>.
+  </p>
+  <button class="cookie-accept" id="cookie-accept" aria-label="Accept cookies">Accept</button>
+</div>
+
+<script>
+  const banner = document.getElementById('cookie-banner');
+  const btn = document.getElementById('cookie-accept');
+
+  if (localStorage.getItem('cookies-accepted')) {
+    banner?.classList.add('hidden');
+  }
+
+  btn?.addEventListener('click', () => {
+    localStorage.setItem('cookies-accepted', '1');
+    banner?.classList.add('hidden');
+  });
+</script>

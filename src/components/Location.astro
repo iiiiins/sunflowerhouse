@@ -1,0 +1,41 @@
+---
+const distances = [
+  { lbl: 'Airport',          val: '26 KM',  sub: '28 min by car' },
+  { lbl: 'Beach',            val: '4.6 KM', sub: '5 min drive' },
+  { lbl: 'Supermarket',      val: '2 KM',   sub: 'Walking distance' },
+  { lbl: 'City Centre',      val: '22 KM',  sub: 'Lisbon downtown' },
+  { lbl: 'Shopping Center',  val: '10 KM',  sub: '15 min by car' },
+  { lbl: 'Pharmacy',         val: '3 KM',   sub: '3 min by car' },
+];
+---
+<section class="location" id="location" aria-label="Location">
+  <div class="inner">
+    <div class="loc-grid">
+      <div>
+        <span class="tag">— Location</span>
+        <h2 class="section-title">Lisbon,<br><em>Portugal</em></h2>
+        <div class="yellow-line" aria-hidden="true"></div>
+        <p style="font-size:15px;line-height:1.8;color:var(--gray-mid)">
+          Near Lisbon — one of Europe's fastest-growing esports hubs. Easy international access, affordable living, world-class quality of life.
+        </p>
+        <div class="loc-cards">
+          {distances.map(d => (
+            <div class="loc-card">
+              <div class="loc-lbl">{d.lbl}</div>
+              <div class="loc-val">{d.val}</div>
+              <div class="loc-sub">{d.sub}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div>
+        <div class="loc-img-wrap">
+          <img src="/images/location-exterior.jpeg" alt="Sunflower House exterior" />
+          <div class="loc-img-overlay">
+            <div class="loc-img-label">📍 Rua Parque Natural do Alvão Nº51, Portugal</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

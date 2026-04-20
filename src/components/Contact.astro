@@ -1,0 +1,141 @@
+---
+// Replace YOUR_WEB3FORMS_KEY with your key from https://web3forms.com
+const WEB3FORMS_KEY = 'fd5bf761-8d64-4201-a165-e748ce19e34f';
+const CONTACT_EMAIL = 'contact@sunflower.gg';
+const ADDRESS = 'Rua Parque Natural do Alvão Nº51';
+const WEBSITE = 'www.sunflower.gg';
+---
+<section class="contact" id="contact" aria-label="Contact">
+  <div class="inner">
+    <div class="contact-grid">
+      <div>
+        <span class="tag">— Get in Touch</span>
+        <h2 class="contact-title">Ready to<br><em>Train Here?</em></h2>
+        <p class="contact-desc">Tell us about your team and dates. We'll get back to you with availability and a tailored proposal within 24 hours.</p>
+        <div class="contact-links">
+          <a href={`mailto:${CONTACT_EMAIL}`} class="contact-link">
+            <div class="c-icon" aria-hidden="true">✉️</div>
+            {CONTACT_EMAIL}
+          </a>
+          <div class="contact-link">
+            <div class="c-icon" aria-hidden="true">📍</div>
+            {ADDRESS}
+          </div>
+          <div class="contact-link">
+            <div class="c-icon" aria-hidden="true">🌐</div>
+            {WEBSITE}
+          </div>
+        </div>
+      </div>
+      <div class="form-wrap">
+        <form id="booking-form" method="POST" action="https://api.web3forms.com/submit" novalidate>
+          <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
+          <input type="hidden" name="subject" value="New Booking Request — Sunflower House" />
+          <input type="hidden" name="redirect" value="false" />
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" aria-hidden="true" />
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="team-name">Team / Org Name</label>
+              <input type="text" id="team-name" name="team_name" class="form-input" placeholder="e.g. Team Liquid" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="contact-name">Contact Name</label>
+              <input type="text" id="contact-name" name="contact_name" class="form-input" placeholder="Your name" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="email">Email Address</label>
+            <input type="email" id="email" name="email" class="form-input" placeholder="you@org.com" required />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="arrival">Arrival Date</label>
+              <input type="date" id="arrival" name="arrival_date" class="form-input" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="departure">Departure Date</label>
+              <input type="date" id="departure" name="departure_date" class="form-input" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="package">Package / Event Type</label>
+              <select id="package" name="package" class="form-select">
+                <option value="">Select option</option>
+                <optgroup label="Bootcamp Packages">
+                  <option>Short Stay (€15 / 3h per PC)</option>
+                  <option>Standard Bootcamp (€150 / day, 6 PCs)</option>
+                  <option>Complete Pack (PCs + Accommodation + Food)</option>
+                </optgroup>
+                <optgroup label="Events &amp; Other">
+                  <option>Birthday Party</option>
+                  <option>Private Party</option>
+                  <option>Event / Tournament</option>
+                  <option>Photoshoot / Content Creation</option>
+                  <option>Custom — Describe Below</option>
+                </optgroup>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="game">Game / Discipline</label>
+              <input type="text" id="game" name="game" class="form-input" placeholder="e.g. CS2, Dota 2, Valorant" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="group-size">Team / Group Size</label>
+            <select id="group-size" name="group_size" class="form-select">
+              <option value="">Select size</option>
+              <option>1–5 people</option>
+              <option>6–10 people</option>
+              <option>11–15 people</option>
+              <option>15+ people</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="notes">Additional Notes</label>
+            <textarea id="notes" name="notes" class="form-textarea" placeholder="Any specific requirements, goals, or questions…"></textarea>
+          </div>
+
+          <button type="submit" class="form-submit">Send Booking Request →</button>
+        </form>
+        <div class="form-success" id="form-success" role="alert" aria-live="polite">
+          ✓ Request sent! We'll be in touch within 24 hours.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('booking-form') as HTMLFormElement | null;
+  const success = document.getElementById('form-success');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector<HTMLButtonElement>('.form-submit');
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: new FormData(form),
+      });
+      const data = await res.json();
+      if (data.success) {
+        form.style.display = 'none';
+        if (success) success.style.display = 'block';
+      } else {
+        throw new Error('submission failed');
+      }
+    } catch {
+      if (btn) { btn.disabled = false; btn.textContent = 'Send Booking Request →'; }
+      alert('Something went wrong. Please email us directly.');
+    }
+  });
+</script>
