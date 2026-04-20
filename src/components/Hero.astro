@@ -1,4 +1,5 @@
 ---
+import settings from '../content/settings/general.json';
 ---
 <section class="hero" id="home" aria-label="Hero">
   <div class="hero-bg" aria-hidden="true">
@@ -6,14 +7,14 @@
   </div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="hero-badge" aria-hidden="true">
-    <span class="hero-dot"></span>Available for Bookings — Lisbon, Portugal
+    <span class="hero-dot"></span>{settings.hero_badge}
   </div>
   <h1>
     <span class="line-white">THE ULTIMATE</span>
     <span class="line-yellow">ESPORTS</span>
     <span class="line-outline">BOOTCAMP</span>
   </h1>
-  <p class="hero-desc">850 sqm of elite gaming infrastructure, world-class hardware and full-residency amenities — built by OG Esports, available for your team.</p>
+  <p class="hero-desc">{settings.hero_desc}</p>
   <div class="hero-actions">
     <a href="#contact" class="btn-yellow">Request a Booking</a>
     <a href="#gallery" class="btn-ghost">Explore the House</a>

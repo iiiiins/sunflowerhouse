@@ -1,4 +1,6 @@
 ---
+import pkg from '../content/pricing/packages.json';
+const { short_stay, standard, complete } = pkg;
 ---
 <section class="pricing" id="pricing">
   <div class="inner">
@@ -8,15 +10,11 @@
       <div class="price-card">
         <div class="price-dur">Hourly PC Rental</div>
         <div class="price-name">Short Stay</div>
-        <div class="price-amt"><span class="cur">€</span>15<span class="per"> / 3h</span></div>
-        <div class="price-note">Per PC station · Minimum 3 hours</div>
+        <div class="price-amt"><span class="cur">{short_stay.price[0]}</span>{short_stay.price.slice(1)}<span class="per"> {short_stay.period}</span></div>
+        <div class="price-note">{short_stay.note}</div>
         <div class="price-div" aria-hidden="true"></div>
         <ul class="price-feats">
-          <li>Rent PCs by the hour</li>
-          <li>€15 per station for 3 hours</li>
-          <li>Training room access</li>
-          <li>High-speed internet</li>
-          <li>Flexible time slots</li>
+          {short_stay.features.map((f: string) => <li>{f}</li>)}
         </ul>
         <div class="price-cta"><a href="#contact" class="btn-ghost">Book Hours</a></div>
       </div>
@@ -24,16 +22,11 @@
         <div class="price-hot" aria-label="Most popular">Most Popular</div>
         <div class="price-dur">Daily Bootcamp Rental</div>
         <div class="price-name">Standard Bootcamp</div>
-        <div class="price-amt"><span class="cur">€</span>150<span class="per"> / day</span></div>
-        <div class="price-note">6 PCs included · Full day access</div>
+        <div class="price-amt"><span class="cur">{standard.price[0]}</span>{standard.price.slice(1)}<span class="per"> {standard.period}</span></div>
+        <div class="price-note">{standard.note}</div>
         <div class="price-div" aria-hidden="true"></div>
         <ul class="price-feats">
-          <li>6 gaming stations</li>
-          <li>€150 flat rate per day</li>
-          <li>Full training room</li>
-          <li>Gym &amp; pool access</li>
-          <li>House manager on-site</li>
-          <li>Flexible scheduling</li>
+          {standard.features.map((f: string) => <li>{f}</li>)}
         </ul>
         <div class="price-cta"><a href="#contact" class="btn-yellow">Book Now</a></div>
       </div>
@@ -41,15 +34,10 @@
         <div class="price-dur">Full Package</div>
         <div class="price-name">Complete Pack</div>
         <div class="price-tbd">Custom</div>
-        <div class="price-note">PCs + Accommodation + Food · Price by email</div>
+        <div class="price-note">{complete.note}</div>
         <div class="price-div" aria-hidden="true"></div>
         <ul class="price-feats">
-          <li>All 20 gaming stations</li>
-          <li>Full house — 13 bedrooms</li>
-          <li>Meals &amp; catering</li>
-          <li>Gym, pool &amp; jacuzzi</li>
-          <li>House manager</li>
-          <li>Fully tailored</li>
+          {complete.features.map((f: string) => <li>{f}</li>)}
         </ul>
         <div class="price-cta"><a href="#contact" class="btn-ghost">Get a Quote</a></div>
       </div>

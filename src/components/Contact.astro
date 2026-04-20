@@ -1,9 +1,7 @@
 ---
-// Replace YOUR_WEB3FORMS_KEY with your key from https://web3forms.com
+import settings from '../content/settings/general.json';
 const WEB3FORMS_KEY = 'fd5bf761-8d64-4201-a165-e748ce19e34f';
-const CONTACT_EMAIL = 'contact@sunflower.gg';
-const ADDRESS = 'Rua Parque Natural do Alvão Nº51';
-const WEBSITE = 'www.sunflower.gg';
+const { contact_email: CONTACT_EMAIL, address: ADDRESS, website: WEBSITE } = settings;
 ---
 <section class="contact" id="contact" aria-label="Contact">
   <div class="inner">

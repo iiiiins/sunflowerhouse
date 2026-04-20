@@ -1,0 +1,18 @@
+{
+  "short_stay": {
+    "price": "€15",
+    "period": "/ 3h",
+    "note": "Per PC station · Minimum 3 hours",
+    "features": ["Rent PCs by the hour", "€15 per station for 3 hours", "Training room access", "High-speed internet", "Flexible time slots"]
+  },
+  "standard": {
+    "price": "€150",
+    "period": "/ day",
+    "note": "6 PCs included · Full day access",
+    "features": ["6 gaming stations", "€150 flat rate per day", "Full training room", "Gym & pool access", "House manager on-site", "Flexible scheduling"]
+  },
+  "complete": {
+    "note": "PCs + Accommodation + Food · Price by email",
+    "features": ["All 20 gaming stations", "Full house — 13 bedrooms", "Meals & catering", "Gym, pool & jacuzzi", "House manager", "Fully tailored"]
+  }
+}
