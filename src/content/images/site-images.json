@@ -1,13 +1,13 @@
 {
-  "hero_background": "/images/gallery-g1-exterior.jpeg",
-  "specs_pc": "/images/specs-pc.webp",
-  "location_exterior": "/images/location-exterior.jpeg",
-  "fac_training": "/images/fac-training-1.jpeg",
-  "fac_pool": "/images/fac-pool.jpeg",
-  "fac_bedrooms": "/images/fac-bedrooms.jpeg",
-  "fac_kitchen": "/images/fac-kitchen.jpeg",
-  "fac_outside": "/images/fac-outside.jpeg",
-  "fac_lounge": "/images/modal-lobby.jpeg",
+  "fac_parking": "/images/modal-parking.jpeg",
   "fac_laundry": "/images/modal-laundry.jpeg",
-  "fac_parking": "/images/modal-parking.jpeg"
+  "location_exterior": "/images/location-exterior.jpeg",
+  "fac_kitchen": "/images/fac-kitchen.jpeg",
+  "fac_bedrooms": "/images/fac-bedrooms.jpeg",
+  "fac_outside": "/images/fac-outside.jpeg",
+  "fac_training": "/images/image-8-.jpg",
+  "fac_lounge": "/images/modal-lobby.jpeg",
+  "hero_background": "/images/gallery-g1-exterior.jpeg",
+  "fac_pool": "/images/image-9-.jpg",
+  "specs_pc": "/images/specs-pc.webp"
 }
