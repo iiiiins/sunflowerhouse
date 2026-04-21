@@ -1,16 +1,16 @@
 ---
 const logos = [
-  { icon: '🪑', name: 'SECRETLAB', cls: 'sl' },
-  { icon: '🐂', name: 'RED BULL', cls: 'rb' },
-  { icon: '🖥️', name: 'ZOWIE', cls: 'zw' },
+  { src: '/logos/secretlab.png', alt: 'Secret Lab' },
+  { src: '/logos/scan3xs.png',   alt: 'Scan 3XS' },
+  { src: '/logos/melbet.png',    alt: 'Melbet' },
+  { src: '/logos/socios.svg',    alt: 'Socios' },
 ];
 ---
 <div class="sponsors-wrap" aria-hidden="true">
   <div class="sponsors-track">
     {[...logos, ...logos, ...logos, ...logos, ...logos, ...logos].map(l => (
       <div class="sponsor-logo-item">
-        <span class="s-icon">{l.icon}</span>
-        <span class={`s-name ${l.cls}`}>{l.name}</span>
+        <img src={l.src} alt={l.alt} height="36" />
       </div>
     ))}
   </div>
